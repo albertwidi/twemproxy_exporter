@@ -1,0 +1,11 @@
+wallet-oauth-token:
+  listen: 0.0.0.0:6381
+  hash: fnv1a_64
+  hash_tag: "{}"
+  distribution: ketama
+  auto_eject_hosts: true
+  timeout: 400
+  protocol: redis
+  servers:
+   - redis:6379:1 alpha
+   - redis2:6379:1 beta

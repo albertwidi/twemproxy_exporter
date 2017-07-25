@@ -1,0 +1,47 @@
+{
+    "service": "nutcracker",
+    "source": "546af636d0b6",
+    "version": "0.4.1",
+    "uptime": 3615048,
+    "timestamp": 1500525677,
+    "total_connections": 64592,
+    "curr_connections": 5,
+    "wallet-oauth-token": {
+        "client_eof": 64556,
+        "client_err": 0,
+        "client_connections": 2,
+        "server_ejects": 13,
+        "forward_error": 214,
+        "fragments": 0,
+        "beta": {
+            "server_eof": 0,
+            "server_err": 0,
+            "server_timedout": 12,
+            "server_connections": 1,
+            "server_ejected_at": 1500434177797642,
+            "requests": 87422952,
+            "request_bytes": 18672072152,
+            "responses": 87422871,
+            "response_bytes": 616165304,
+            "in_queue": 1,
+            "in_queue_bytes": 379,
+            "out_queue": 0,
+            "out_queue_bytes": 0
+        },
+        "alpha": {
+            "server_eof": 0,
+            "server_err": 0,
+            "server_timedout": 19,
+            "server_connections": 1,
+            "server_ejected_at": 1499828614566581,
+            "requests": 80367111,
+            "request_bytes": 17165699572,
+            "responses": 80366977,
+            "response_bytes": 569082488,
+            "in_queue": 0,
+            "in_queue_bytes": 0,
+            "out_queue": 0,
+            "out_queue_bytes": 0
+        }
+    }
+}

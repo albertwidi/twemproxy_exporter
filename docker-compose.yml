@@ -1,0 +1,23 @@
+version: '2'
+services:
+    redis:
+        image: redis:4.0
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+
+    redis2:
+        image: redis:4.0
+        restart: unless-stopped
+        ports:
+            - "6380:6379"
+
+    twemproxy:
+        image: tarantool/twemproxy:latest
+        restart: unless-stopped
+        volumes:
+            - ./files/nutcracker.yml:/etc/nutcracker.yml
+        ports:
+            - "6381:6381"
+            - "22222:22222"
+        
