@@ -57,6 +57,8 @@ var (
 	serverMetrics = metrics{
 		"in_queue":          newServerMetric("in_queue", "In queue process in redis server", nil),
 		"in_queue_bytes":    newServerMetric("in_queue_bytes", "In queue size in redis server", nil),
+		"eof":               newServerMetric("eof", "EOF from redis server", nil),
+		"err":               newServerMetric("err", "Error from redis server", nil),
 		"timed_out":         newServerMetric("timed_out", "Timed out in redis server", nil),
 		"server_connection": newServerMetric("connection", "Count of server connection to redis server", nil),
 		"server_ejected_at": newServerMetric("ejected_at", "Ejected at time to redis server", nil),
@@ -202,6 +204,8 @@ func (m *Monitor) Run() error {
 		for _, server := range service.Servers {
 			serverMetrics["in_queue"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.InQueue)
 			serverMetrics["in_queue_bytes"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.InQueueBytes)
+			serverMetrics["err"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.ServerErr)
+			serverMetrics["eof"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.ServerEOF)
 			serverMetrics["timed_out"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.ServerTimedout)
 			serverMetrics["server_connection"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.ServerConnections)
 			serverMetrics["server_ejected_at"].WithLabelValues(hostname, serviceName, server.HostAlias).Set(server.ServerEjectedAt)
